@@ -1,0 +1,64 @@
+name: Update Projects List
+
+on:
+  schedule:
+    # 每周一 0 点 (UTC) 运行，可以根据需要调整
+    - cron: '0 0 * * 1'
+  workflow_dispatch: # 允许手动触发
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # 使用 alstr 技术博客提到的 action
+      # 该 action 会获取最近的仓库活动（如 PushEvent, CreateEvent 等）并更新 README
+      - name: Update this repo's README
+        uses: alstr/action-update-projects-list@v1
+        with:
+          # 必填：GitHub 用户名
+          username: baobingbo
+          # 可选：要更新的 README 文件路径，默认是 ./README.md
+          # readme-path: ./README.md
+          # 可选：在 README 中查找的开始标记
+          start-marker: "<!-- GITHUB-ACTIVITY:START -->"
+          # 可选：在 README 中查找的结束标记
+          end-marker: "<!-- GITHUB-ACTIVITY:END -->"
+          # 可选：要包含的事件类型
+          event-types: >
+            [
+              "PushEvent",
+              "CreateEvent",
+              "DeleteEvent",
+              "IssuesEvent",
+              "PullRequestEvent",
+              "ReleaseEvent",
+              "ForkEvent"
+            ]
+          # 可选：要排除的仓库名称
+          exclude-repositories: >
+            [
+              "baobingbo/baobingbo" # 排除自己，避免无限循环
+            ]
+          # 可选：要显示的最大项目数
+          max-repositories: 10
+          # 可选：是否包含 Fork 的仓库
+          include-forks: false
+          # 可选：是否包含私有仓库（需要更高级的 token）
+          include-private: false
+          # 使用 GitHub 默认提供的 token
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      # 提交更改
+      - name: Commit and push changes
+        run: |
+          git config --local user.name 'github-actions[bot]'
+          git config --local user.email 'github-actions[bot]@users.noreply.github.com'
+          git add README.md
+          if ! git diff --quiet; then
+            git commit -m "docs: update projects list via GitHub Actions"
+            git push
+          else
+            echo "No changes to commit."
+          fi
