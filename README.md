@@ -1,6 +1,6 @@
 <div align="center">
 
-# Hi there, I'm Bao Bingbo 👋
+# Hi there, I'm [Your Name] 👋
 
 **Full Stack Developer | Open Source Contributor**
 
@@ -24,9 +24,9 @@ Python, Vue, MySQL, MongoDB, PostgreSQL, Docker, Linux ...
 
 ### 📚 My Recent Projects
 
-<!-- GITHUB-ACTIVITY:START - Do not remove or modify this section -->
-<!-- Here will be your recent projects automatically updated by GitHub Actions -->
-<!-- GITHUB-ACTIVITY:END -->
+<!--START_SECTION:activity-->
+<!-- This is where the activity list will be auto-updated by GitHub Actions -->
+<!--END_SECTION:activity-->
 
 ---
 
