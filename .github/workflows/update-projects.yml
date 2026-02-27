@@ -1,20 +1,31 @@
-name: Update README
+name: Update README with Recent Activity
 
 on:
   schedule:
-    - cron: '*/5 * * * *'
-  workflow_dispatch:
+    # 每30分钟运行一次 (可根据需要调整频率，但不要太频繁)
+    - cron: "*/30 * * * *"
+  workflow_dispatch: # 允许手动触发
 
 jobs:
   build:
+    name: Update this repo's README with recent activity
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: write # 必需权限，允许写入仓库内容
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
+
+      # 使用 jamesgeorge007 的 action
       - uses: jamesgeorge007/github-activity-readme@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          COMMIT_MSG: "Specify a custom commit message"
-          MAX_LINES: 10
-          COMMIT_NAME: GitHub Activity Readme
+          # 可选配置
+          # 你的 GitHub 用户名 (默认是触发 workflow 的用户)
+          # GH_USERNAME: baobingbo 
+          # 最大显示行数
+          MAX_LINES: 5
+          # 过滤特定事件类型 (可选)
+          # FILTER_EVENTS: "IssueCommentEvent,IssuesEvent,PullRequestEvent,ReleaseEvent"
+          # 目标文件 (默认是 README.md)
+          # TARGET_FILE: "README.md"
