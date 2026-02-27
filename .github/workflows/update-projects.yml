@@ -1,68 +1,16 @@
-name: Update Projects List
+name: Update README
 
 on:
   schedule:
-    # 每周一 0 点 (UTC) 运行，可以根据需要调整
-    - cron: '0 0 * * 1'
-  workflow_dispatch: # 允许手动触发
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
 
 jobs:
-  update-readme:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-
-      # 使用 anmol098 的 action，通过 type=updated_files 来获取最近活动的仓库
-      - name: Update README with recent activity
-        uses: anmol098/waka-readme-stats@master
-        with:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # 这个选项会将最近活动的仓库列表写入 README
-          COMMIT_MESSAGE: "docs: update projects list via GitHub Actions"
-          # 选择 'updated_files' 类型来获取最近的仓库活动
-          SHOW_UPDATED_DATE: "False"
-          SHOW_COMMIT_COUNT: "False"
-          SHOW_LANGUAGE: "False"
-          SHOW_OS: "False"
-          SHOW_PROJECTS: "True" # 启用项目展示
-          SHOW_TIMEZONE: "False"
-          SHOW_EDITORS: "False"
-          SHOW_SHORT_INFO: "False"
-          SHOW_LOC_CHART: "False"
-          SHOW_PROFILE_VIEWS: "False"
-          SHOW_LINES_OF_CODE: "False"
-          SHOW_LANGUAGE_PER_REPO: "False"
-          SHOW_TOTAL_COMMIT_COUNT: "False"
-          SHOW_TOTAL_PRS: "False"
-          SHOW_TOTAL_ISSUES: "False"
-          SHOW_LONGEST_STREAK: "False"
-          SHOW_CURRENT_STREAK: "False"
-          SHOW_DAYS_OF_WEEK: "False"
-          SHOW_LEAST_USED_LANGS: "False"
-          SHOW_MOST_USED_LANGS: "False"
-          SHOW_WAKATIME_STATS: "False"
-          SHOW_PER_LANGUAGE_STATS: "False"
-          SHOW_ACTIVITY_GRAPH: "False"
-          SHOW_UPDATED_DATE: "False"
-          # 重要：指定 README 中的标记
-          WAKAREADME_COMMENTS_START: "START_SECTION:activity"
-          WAKAREADME_COMMENTS_END: "END_SECTION:activity"
-          # 限制显示的仓库数量
-          NUMBER_OF_PROJECTS: 10
-          # 排除自身仓库，防止无限循环
-          EXCLUDED_REPOS: "baobingbo"
-          # 选择获取最近活动的类型
-          STATS_TYPE: "updated_files"
-
-      # 提交更改
-      - name: Commit and push changes
-        run: |
-          git config --local user.name 'github-actions[bot]'
-          git config --local user.email 'github-actions[bot]@users.noreply.github.com'
-          git add README.md
-          if ! git diff --quiet; then
-            git commit -m "docs: update projects list via GitHub Actions"
-            git push
-          else
-            echo "No changes to commit."
-          fi
+      - uses: actions/checkout@v2
+      - uses: jamesgeorge007/github-activity-readme@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
