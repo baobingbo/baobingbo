@@ -12,43 +12,47 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # 使用 alstr 技术博客提到的 action
-      # 该 action 会获取最近的仓库活动（如 PushEvent, CreateEvent 等）并更新 README
-      - name: Update this repo's README
-        uses: alstr/action-update-projects-list@v1
+      # 使用 anmol098 的 action，通过 type=updated_files 来获取最近活动的仓库
+      - name: Update README with recent activity
+        uses: anmol098/waka-readme-stats@master
         with:
-          # 必填：GitHub 用户名
-          username: baobingbo
-          # 可选：要更新的 README 文件路径，默认是 ./README.md
-          # readme-path: ./README.md
-          # 可选：在 README 中查找的开始标记
-          start-marker: "<!-- GITHUB-ACTIVITY:START -->"
-          # 可选：在 README 中查找的结束标记
-          end-marker: "<!-- GITHUB-ACTIVITY:END -->"
-          # 可选：要包含的事件类型
-          event-types: >
-            [
-              "PushEvent",
-              "CreateEvent",
-              "DeleteEvent",
-              "IssuesEvent",
-              "PullRequestEvent",
-              "ReleaseEvent",
-              "ForkEvent"
-            ]
-          # 可选：要排除的仓库名称
-          exclude-repositories: >
-            [
-              "baobingbo/baobingbo" # 排除自己，避免无限循环
-            ]
-          # 可选：要显示的最大项目数
-          max-repositories: 10
-          # 可选：是否包含 Fork 的仓库
-          include-forks: false
-          # 可选：是否包含私有仓库（需要更高级的 token）
-          include-private: false
-          # 使用 GitHub 默认提供的 token
-          token: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # 这个选项会将最近活动的仓库列表写入 README
+          COMMIT_MESSAGE: "docs: update projects list via GitHub Actions"
+          # 选择 'updated_files' 类型来获取最近的仓库活动
+          SHOW_UPDATED_DATE: "False"
+          SHOW_COMMIT_COUNT: "False"
+          SHOW_LANGUAGE: "False"
+          SHOW_OS: "False"
+          SHOW_PROJECTS: "True" # 启用项目展示
+          SHOW_TIMEZONE: "False"
+          SHOW_EDITORS: "False"
+          SHOW_SHORT_INFO: "False"
+          SHOW_LOC_CHART: "False"
+          SHOW_PROFILE_VIEWS: "False"
+          SHOW_LINES_OF_CODE: "False"
+          SHOW_LANGUAGE_PER_REPO: "False"
+          SHOW_TOTAL_COMMIT_COUNT: "False"
+          SHOW_TOTAL_PRS: "False"
+          SHOW_TOTAL_ISSUES: "False"
+          SHOW_LONGEST_STREAK: "False"
+          SHOW_CURRENT_STREAK: "False"
+          SHOW_DAYS_OF_WEEK: "False"
+          SHOW_LEAST_USED_LANGS: "False"
+          SHOW_MOST_USED_LANGS: "False"
+          SHOW_WAKATIME_STATS: "False"
+          SHOW_PER_LANGUAGE_STATS: "False"
+          SHOW_ACTIVITY_GRAPH: "False"
+          SHOW_UPDATED_DATE: "False"
+          # 重要：指定 README 中的标记
+          WAKAREADME_COMMENTS_START: "START_SECTION:activity"
+          WAKAREADME_COMMENTS_END: "END_SECTION:activity"
+          # 限制显示的仓库数量
+          NUMBER_OF_PROJECTS: 10
+          # 排除自身仓库，防止无限循环
+          EXCLUDED_REPOS: "baobingbo"
+          # 选择获取最近活动的类型
+          STATS_TYPE: "updated_files"
 
       # 提交更改
       - name: Commit and push changes
