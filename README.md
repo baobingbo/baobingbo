@@ -25,7 +25,6 @@ Python, Vue, MySQL, MongoDB, PostgreSQL, Docker, Linux ...
 ### 📚 My Recent Projects
 
 <!--START_SECTION:activity-->
-<!-- This is where the activity list will be auto-updated by GitHub Actions -->
 <!--END_SECTION:activity-->
 
 ---
