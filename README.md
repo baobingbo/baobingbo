@@ -6,10 +6,6 @@
 
 [![](https://visitcount.itsvg.in/api?id=baobingbo&icon=0&color=0)](https://visitcount.itsvg.in)
 
-</div>
-
----
-
 <div align="center">
   <!-- knock code pictures 敲代码的图片 -->
   <picture>
@@ -22,6 +18,8 @@
 <!-- for beauty 留个空行好看点 -->
 <div>&nbsp;</div>
 
+</div>
+
 ### 🧠 About Me
 
 A passionate developer who loves to build things with code...
@@ -33,7 +31,7 @@ A passionate developer who loves to build things with code...
 <!-- 技能图标徽章 -->
 <div>
   <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
-  <img src="https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D" />
+  <img src="https://img.shields.io/badge/Vue-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D" />
   <img src="https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white" />
   <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" />
   <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" />
