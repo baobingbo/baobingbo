@@ -1,16 +1,38 @@
-## Hi there 👋
+<div align="center">
 
-<!--
-**baobingbo/baobingbo** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+# Hi there, I'm Bao Bingbo 👋
 
-Here are some ideas to get you started:
+**Full Stack Developer | Open Source Contributor**
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+[![](https://visitcount.itsvg.in/api?id=baobingbo&icon=0&color=0)](https://visitcount.itsvg.in)
+
+</div>
+
+---
+
+### 🧠 About Me
+
+A passionate developer who loves to build things with code...
+
+---
+
+### 🛠️ Skills
+
+Python, Vue, MySQL, MongoDB, PostgreSQL, Docker, Linux ...
+
+---
+
+### 📚 My Recent Projects
+
+<!-- GITHUB-ACTIVITY:START - Do not remove or modify this section -->
+<!-- Here will be your recent projects automatically updated by GitHub Actions -->
+<!-- GITHUB-ACTIVITY:END -->
+
+---
+
+### 📊 GitHub Stats
+
+<div align="center">
+  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=baobingbo&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true"/>
+  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=baobingbo&layout=compact&langs_count=7&theme=tokyonight"/>
+</div>
