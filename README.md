@@ -47,6 +47,7 @@ A passionate developer who loves to build things with code...
 ### 📚 My Recent Activity
 
 <!--START_SECTION:activity-->
+1. ❗ Opened issue [#19](https://github.com/yin-yizhen/sonic-topography/issues/19) in [yin-yizhen/sonic-topography](https://github.com/yin-yizhen/sonic-topography)
 <!--END_SECTION:activity-->
 
 ---
